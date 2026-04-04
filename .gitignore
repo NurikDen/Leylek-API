@@ -1,0 +1,40 @@
+# Drawable assets
+Drawable/
+*.jpg
+*.png
+
+# XML databases
+man_names.xml
+woman_names.xml
+men_celebrity.xml
+women_celebrity.xml
+quotes.xml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/build/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
