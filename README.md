@@ -79,7 +79,7 @@
 
 ## Version 2: Enhanced Experience
 
-### Goal: Improve V1 features + add new functionality based on TA feedback
+### Goal: Improve V1 features + add new functionality
 
 ### Improvements to V1 Features:
 
@@ -209,124 +209,6 @@
 
 ---
 
-## Project Structure
-
-```
-Leylek-API/
-├── README.md                    # Project documentation
-├── man_names.xml               # Male names database
-├── woman_names.xml             # Female names database
-├── men_celebrity.xml           # Male celebrities
-├── women_celebrity.xml         # Female celebrities
-│
-├── backend/                    # FastAPI application
-│   ├── main.py                # FastAPI app entry point
-│   ├── requirements.txt       # Python dependencies
-│   ├── config.py              # Configuration
-│   │
-│   ├── models/
-│   │   ├── name.py            # Name data models (Pydantic)
-│   │   └── search.py          # Search request/response models
-│   │
-│   ├── services/
-│   │   ├── xml_parser.py      # XML parsing logic
-│   │   ├── search_engine.py   # Best Match algorithm
-│   │   └── cache.py           # Caching service
-│   │
-│   ├── routers/
-│   │   ├── search.py          # Search endpoints
-│   │   └── names.py           # Name detail endpoints
-│   │
-│   └── tests/
-│       ├── test_xml_parser.py
-│       ├── test_search.py
-│       └── test_api.py
-│
-└── frontend/                   # Node.js web application
-    ├── package.json
-    ├── tsconfig.json
-    ├── index.html
-    │
-    ├── src/
-    │   ├── main.ts            # Entry point
-    │   ├── App.tsx            # Main app component
-    │   │
-    │   ├── components/
-    │   │   ├── Header.tsx
-    │   │   ├── TraitSelector.tsx
-    │   │   ├── NameCard.tsx
-    │   │   ├── NameDetail.tsx
-    │   │   ├── ResultsList.tsx
-    │   │   └── Footer.tsx
-    │   │
-    │   ├── pages/
-    │   │   ├── Home.tsx
-    │   │   ├── Search.tsx
-    │   │   └── Results.tsx
-    │   │
-    │   ├── services/
-    │   │   └── api.ts         # API client
-    │   │
-    │   ├── styles/
-    │   │   └── main.css
-    │   │
-    │   └── types/
-    │       └── index.ts       # TypeScript types
-    │
-    └── public/
-        └── assets/            # Images, icons
-```
-
----
-
-## Development Phases
-
-### Phase 1: Backend Foundation (Week 1-2)
-- [ ] Set up FastAPI project structure
-- [ ] Implement XML parser service
-- [ ] Create Pydantic models
-- [ ] Build basic API endpoints
-- [ ] Write unit tests for XML parser
-
-### Phase 2: Search Algorithm (Week 2-3)
-- [ ] Implement "Best Match" ranking algorithm
-- [ ] Create search endpoint with filtering
-- [ ] Add name detail endpoint
-- [ ] Test with various search scenarios
-- [ ] Optimize performance
-
-### Phase 3: Frontend Development (Week 3-4)
-- [ ] Set up Node.js project (Vite/Next.js)
-- [ ] Create UI components
-- [ ] Implement trait selection interface
-- [ ] Build results display
-- [ ] Connect to backend API
-- [ ] Add responsive design
-
-### Phase 4: V1 Testing & Polish (Week 4-5)
-- [ ] Integration testing
-- [ ] Bug fixes
-- [ ] UI/UX improvements
-- [ ] Prepare demo for TA
-- [ ] Gather feedback
-
-### Phase 5: V2 Enhancements (Week 5-7)
-- [ ] Implement TA feedback
-- [ ] Add advanced search features
-- [ ] Build favorites/comparison features
-- [ ] Improve algorithm (semantic search)
-- [ ] Add analytics
-
-### Phase 6: Deployment (Week 7-8)
-- [ ] Set up CI/CD pipeline
-- [ ] Deploy backend to cloud
-- [ ] Deploy frontend to hosting
-- [ ] Configure domain (optional)
-- [ ] Final testing on production
-- [ ] Update README with deployment info
-
----
-
 ## Key Technical Decisions
 
 1. **XML as Database**: Keep existing XML files for V1, consider migration to SQLite/PostgreSQL for V2 if needed
@@ -354,6 +236,7 @@ Leylek-API/
 
 ## Team
 **MslmTatSoft**
+
 **Project**: Leylek  
 **Description**: Meaning-based Tatar name discovery platform  
 **Tech Stack**: FastAPI (Python) + XML + Node.js/TypeScript  
