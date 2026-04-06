@@ -1,7 +1,8 @@
-# Drawable assets
+# Drawable assets (original folder)
 Drawable/
-*.jpg
-*.png
+
+# Allow frontend assets
+!frontend/public/assets/
 
 # XML databases
 man_names.xml
