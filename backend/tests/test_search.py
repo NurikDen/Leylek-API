@@ -73,3 +73,49 @@ class TestSearchEngine:
         )
         assert score >= 0
         assert score <= 100
+
+    def test_semantic_search_meaning(self):
+        name_data = parser_service.get_name("Азамат")
+        score = search_engine.semantic_search_meaning(
+            name_data, "бөек"
+        )
+        assert score >= 0
+        assert score <= 100
+
+    def test_search_with_query(self):
+        results = search_engine.search_names(
+            gender="male",
+            search_query="бөек",
+            limit=10,
+        )
+        assert len(results) <= 10
+
+    def test_search_with_celebrities_filter(self):
+        results = search_engine.search_names(
+            gender="male",
+            has_celebrities=True,
+            limit=10,
+        )
+        assert len(results) <= 10
+        # All results should have celebrities
+        assert all(len(r.celebrities) > 0 for r in results)
+
+    def test_get_random_name(self):
+        random_name = search_engine.get_random_name(gender="male")
+        assert random_name.name is not None
+        assert random_name.gender == "male"
+
+    def test_get_name_of_the_day(self):
+        name_of_day = search_engine.get_name_of_the_day()
+        assert name_of_day.name is not None
+        assert name_of_day.meaning is not None
+
+    def test_search_with_min_score(self):
+        results = search_engine.search_names(
+            gender="male",
+            user_traits={"smart": 5},
+            min_score=50.0,
+            limit=10,
+        )
+        # All results should have score >= 50
+        assert all(r.match_score >= 50.0 for r in results)

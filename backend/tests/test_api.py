@@ -82,3 +82,55 @@ class TestAPI:
     def test_get_name_not_found(self):
         response = client.get("/api/name/NonExistentName123")
         assert response.status_code == 404
+
+    def test_search_with_query(self):
+        response = client.post(
+            "/api/search",
+            json={
+                "gender": "male",
+                "traits": {},
+                "limit": 10,
+                "search_query": "бөек",
+            },
+        )
+        assert response.status_code == 200
+        data = response.json()
+        assert "results" in data
+
+    def test_search_with_celebrities_filter(self):
+        response = client.post(
+            "/api/search",
+            json={
+                "gender": "male",
+                "traits": {},
+                "limit": 10,
+                "has_celebrities": True,
+            },
+        )
+        assert response.status_code == 200
+        data = response.json()
+        assert "results" in data
+
+    def test_random_name(self):
+        response = client.post(
+            "/api/random",
+            json={"gender": "male"},
+        )
+        assert response.status_code == 200
+        data = response.json()
+        assert "name" in data
+        assert data["name"]["gender"] == "male"
+
+    def test_random_name_invalid_gender(self):
+        response = client.post(
+            "/api/random",
+            json={"gender": "invalid"},
+        )
+        assert response.status_code == 400
+
+    def test_name_of_the_day(self):
+        response = client.get("/api/name-of-the-day")
+        assert response.status_code == 200
+        data = response.json()
+        assert "name" in data
+        assert "date" in data

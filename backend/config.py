@@ -9,6 +9,10 @@ XML_FILES = {
     "female_celebrities": os.path.join(BASE_DIR, "women_celebrity.xml"),
 }
 
-TRAITS = ["beautiful", "smart", "strong", "believer", "rich"]
+TRAITS = [
+    "beautiful", "smart", "strong", "believer", "rich",
+    "patience", "merciful", "honorable", "generous", 
+    "leadership", "creative", "wise"
+]
 
 DEFAULT_SEARCH_LIMIT = 10

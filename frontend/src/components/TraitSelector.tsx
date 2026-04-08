@@ -20,12 +20,12 @@ function TraitSelector({ traits, values, onChange }: TraitSelectorProps) {
           <input
             type="range"
             min="0"
-            max="5"
+            max="10"
             value={values[trait.key] || 0}
             onChange={(e) => onChange(trait.key, parseInt(e.target.value))}
             className="trait-slider"
           />
-          <div className="trait-value">Importance: {values[trait.key] || 0}/5</div>
+          <div className="trait-value">Importance: {values[trait.key] || 0}/10</div>
         </div>
       ))}
     </div>
