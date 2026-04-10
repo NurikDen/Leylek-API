@@ -5,10 +5,6 @@ Drawable/
 !frontend/public/assets/
 
 # XML databases
-man_names.xml
-woman_names.xml
-men_celebrity.xml
-women_celebrity.xml
 quotes.xml
 
 # Python
